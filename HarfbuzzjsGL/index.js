@@ -4,6 +4,7 @@
 
 "use strict";
 
+
 var hb, fontBlob;
 var testText = "ខណ្ឌពោធិ៍សែនជ័យ";
 
@@ -175,15 +176,24 @@ function main() {
   }
 
   // setup GLSL programs
-  var fProgramInfo = webglUtils.createProgramInfo(gl, ["vertex-shader-3d", "fragment-shader-3d"]);
   var textProgramInfo = webglUtils.createProgramInfo(gl, ["text-vertex-shader", "text-fragment-shader"]);
 
   for (var key in glyphsImages) {
     var image = glyphsImages[key];
     
-    var svgCanvas = makeSVGCanvas(image.img);
-    var textWidth = svgCanvas.width;
-    var textHeight = svgCanvas.height;
+    var textWidth = image.img.width;
+    var textHeight = image.img.height;
+
+    // Transform code
+    // var svgCanvas = makeSVGCanvas(image.img);
+    // let imageData = svgCtr.getImageData(0, 0, textWidth, textHeight);
+    // // console.log(imageData.data);
+    // for (var iy = 0; iy < imageData.width; ++iy) {
+    //   for (var ix = 0; ix < imageData.height; ++ix) {
+
+    //   }
+    // }
+
 
     image.width = textWidth;
     image.height = textHeight;
@@ -194,7 +204,7 @@ function main() {
     // create text texture.
     image.texture = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, image.texture);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, svgCanvas);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image.img);
 
     // make sure we can render it even if it's not a power of 2
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
@@ -248,6 +258,10 @@ function main() {
 
     gl.enable(gl.DEPTH_TEST);
     gl.enable(gl.CULL_FACE);
+    gl.enable(gl.BLEND)
+    gl.blendEquation( gl.FUNC_ADD );
+    gl.blendFunc( gl.SRC_ALPHA, gl.SRC_ALPHA );
+    gl.blendFunc( gl.DST_ALPHA, gl.ONE_MINUS_SRC_ALPHA );
 
     gl.clearColor(0.0, 1.0, 1.0, 1.0);
 

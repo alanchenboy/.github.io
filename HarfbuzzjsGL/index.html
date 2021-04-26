@@ -10,33 +10,6 @@
   <body>
 <canvas id="canvas"></canvas>
 <!-- vertex shader -->
-<script  id="vertex-shader-3d" type="x-shader/x-vertex">
-attribute vec4 a_position;
-attribute vec4 a_color;
-
-uniform mat4 u_matrix;
-
-varying vec4 v_color;
-
-void main() {
-  // Multiply the position by the matrix.
-  gl_Position = u_matrix * a_position;
-
-  // Pass the color to the fragment shader.
-  v_color = a_color;
-}
-</script>
-<!-- fragment shader -->
-<script  id="fragment-shader-3d" type="x-shader/x-fragment">
-precision mediump float;
-
-// Passed in from the vertex shader.
-varying vec4 v_color;
-
-void main() {
-   gl_FragColor = v_color;
-}
-</script>
 <script  id="text-vertex-shader" type="x-shader/x-vertex">
 attribute vec4 a_position;
 attribute vec2 a_texcoord;
@@ -63,7 +36,7 @@ varying vec2 v_texcoord;
 uniform sampler2D u_texture;
 
 void main() {
-   gl_FragColor = texture2D(u_texture, v_texcoord);// + vec4(1,0,0,1);
+  gl_FragColor = texture2D(u_texture, v_texcoord);
 }
 </script><!--
 for most samples webgl-utils only provides shader compiling/linking and
