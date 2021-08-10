@@ -1,0 +1,43 @@
+{
+    "version": 8,
+    "zoom": 0.0,
+    "center": [0.0, 0.0],
+    "sources": {
+      "mapbox": {
+        "type": "geojson",
+        "data": {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [ [
+                    [0.0, 0.0], [ 0, 45 ], [ 45, 45 ], [ 45, 0 ]
+                ] ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "layers": [
+      {
+          "id": "background",
+          "type": "background",
+          "paint": {
+              "background-color": "rgba(0, 177, 79, 1.0)"
+          }
+      },
+      {
+        "id": "fill-test",
+        "type": "fill",
+        "source": "mapbox",
+        "paint": {
+            "fill-opacity": 0.2,
+            "fill-color": "rgba(255, 255, 255, 1.0)",
+            "fill-outline-color": "rgba(255, 255, 255, 1.0)"
+        }
+      }
+    ]
+  }
