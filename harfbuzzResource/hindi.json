@@ -23,7 +23,7 @@
         "intensity": 0.1
     },
     "glyphs": "https://alanchenboy.github.io/harfbuzzResource/pbf/{fontstack}/{range}.pbf",
-    "fonts": "https://alanchenboy.github.io/harfbuzzResource/font/{fontstack}/{language}.ttf",
+    "fonts": "https://alanchenboy.github.io/harfbuzzResource/fonts/{fontstack}/{language}.ttf",
     "layers": [
         {
             "id": "background",
@@ -578,11 +578,7 @@
                 "text-font": [
                     "Noto Sans Regular"
                 ],
-                "text-field": ["format", [
-                    "coalesce",
-                    ["get", "@name:en"],
-                    ["get", "@name"]
-                ], {}, "\n", {}, ["get", "@name:hi"], {}]
+                "text-field": "{name:en}\n{name:hi}" 
             },
             "paint": {
                 "text-halo-color": "#ffffff",
