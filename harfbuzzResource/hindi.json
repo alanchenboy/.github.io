@@ -23,7 +23,7 @@
         "intensity": 0.1
     },
     "glyphs": "https://alanchenboy.github.io/harfbuzzResource/pbf/{fontstack}/{range}.pbf",
-    "fonts": "https://alanchenboy.github.io/harfbuzzResource/font/{fontstack}/{language}.pbf",
+    "fonts": "https://alanchenboy.github.io/harfbuzzResource/font/{fontstack}/{language}.ttf",
     "layers": [
         {
             "id": "background",
