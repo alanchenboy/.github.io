@@ -23,7 +23,32 @@
         "intensity": 0.1
     },
     "glyphs": "https://alanchenboy.github.io/harfbuzzResource/pbf/{fontstack}/{range}.pbf",
-    "fonts": "https://alanchenboy.github.io/harfbuzzResource/fonts/{fontstack}/{language}.ttf",
+    "font-faces": [
+        {
+            "text-font": ["Noto Sans Regular"],
+            "font-files": [
+                {
+                    "url": "https://alanchenboy.github.io/harfbuzzResource/fonts/Noto%20Sans%20Regular/khmer.ttf",
+                    "unicode-range": [
+                        "U+1780-17FF"
+                    ]
+                },
+                {
+                    "url":"https://alanchenboy.github.io/harfbuzzResource/fonts/Noto%20Sans%20Regular/myanmar.ttf",
+                    "unicode-range": [
+                        "U+1000-109F", "U+A9E0-0xA9FF", "U+AA60-0xAA7F"
+                    ]
+                },
+                {
+                    "url":"https://alanchenboy.github.io/harfbuzzResource/fonts/Noto%20Sans%20Regular/devanagari.ttf",
+                    "unicode-range": [
+                        "U+0900-097F", "U+A8E0-0xA8FF"
+                    ]
+                }
+                
+            ]
+        }
+    ],
     "layers": [
         {
             "id": "background",
